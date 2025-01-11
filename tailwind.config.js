@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        teal: '#20c997',
-        blue: '#007bff',
-        olive: '#6c757d'
+        customTeal: '#20c997',
+        customBlue: '#007bff',
+        customOlive: '#6c757d'
       }
     }
   },
