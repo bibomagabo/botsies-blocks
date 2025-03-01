@@ -1,10 +1,18 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Enable JSON imports
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  json: {
-    stringify: true // Allows JSON imports
-  }
-});
+  define: {
+    'process.env': process.env,
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: process.env.VITE_BACKEND_URL,
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+}));

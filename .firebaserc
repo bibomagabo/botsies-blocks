@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "botsies-v1-6f3f6"
-  }
+    "default": "botsies-v1-6f3f6",
+    "staging": "botsies-v1-6f3f6"
+  },
+  "targets": {},
+  "etags": {}
 }

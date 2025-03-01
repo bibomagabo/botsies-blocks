@@ -34,3 +34,6 @@ firebase-debug.log
 
 # Temporary system files
 Thumbs.db
+
+# .gitignore
+.env*

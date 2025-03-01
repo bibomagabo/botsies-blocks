@@ -1,12 +1,19 @@
-// Simulate an asynchronous API call to process messages
-export async function fetchChatResponse(message) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (message.toLowerCase().includes('error')) {
-        reject(new Error('API error occurred.'));
-      } else {
-        resolve({ response: `You said: "${message}"` });
+import axios from 'axios';
+
+export const fetchChatResponse = async (input) => {
+  try {
+    const response = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/api/chat`,
+      { input },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }
-    }, 500); // Simulate network delay (500ms)
-  });
-}
+    );
+    return response.data; // Return the response data from the server
+  } catch (error) {
+    console.error('Error fetching chat response:', error.message);
+    throw new Error('Failed to fetch chat response');
+  }
+};

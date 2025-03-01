@@ -1,67 +1,84 @@
-/* Root container styling */
-#root {
-  display: flex;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Prevent unnecessary scrolling */
-}
+/* App.css */
 
-/* Side panel styling */
-.side-panel {
-  position: fixed; /* Fix the side panel to the left */
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%; /* Full height of the viewport */
-  background-color: #f5f5f5;
-  border-right: 1px solid #ddd;
-  overflow-y: auto; /* Allow scrolling if content exceeds height */
-  padding: 10px;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  z-index: 1; /* Ensure it appears above other elements */
 }
 
-/* Main chat area */
-.chat-main {
-  margin-left: 250px; /* Offset for the side panel */
+body,
+html {
+  height: 100%;
+  font-family: "Fira Code", monospace;
+  overflow: hidden; /* Prevent body scroll */
+}
+
+.flex {
+  display: flex;
+}
+
+.side-panel {
+  width: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #ddd;
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Enable scrolling for overflow */
+}
+
+.main-chat {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 250px); /* Adjust width based on side panel */
-  height: 100%; /* Full viewport height */
-  overflow: hidden; /* Prevent unnecessary scrolling */
+  height: 100vh; /* Full height */
 }
 
-/* Header styling */
 .header {
-  position: fixed; /* Fix the header to the top */
-  top: 0;
-  left: 250px; /* Offset for the side panel */
-  width: calc(100% - 250px); /* Adjust width based on side panel */
-  padding: 10px 20px;
-  background-color: #f5f5f5;
+  height: 60px;
+  background: #ffffff;
   border-bottom: 1px solid #ddd;
-  z-index: 1; /* Ensure it appears above the chat conversation */
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
-/* Chat conversation area */
-.chat-conversation {
-  margin-top: 60px; /* Offset for the fixed header */
-  margin-bottom: 60px; /* Offset for the chat input */
-  flex-grow: 1; /* Allow it to fill available vertical space */
-  overflow-y: auto; /* Enable vertical scrolling for lengthy messages */
-  padding: 10px;
-  background-color: #f9f9f9;
-  box-sizing: border-box;
+.chat-messages {
+  flex: 1; /* Take up remaining space */
+  overflow-y: auto; /* Scrollable chat messages */
+  padding: 20px;
+  background: #f4f4f4;
 }
 
-/* Chat input area */
 .chat-input {
-  position: fixed; /* Fix the input box to the bottom */
-  bottom: 0;
-  left: 250px; /* Offset for the side panel */
-  width: calc(100% - 250px); /* Adjust width based on side panel */
-  padding: 10px;
-  background-color: #ffffff;
+  height: 60px;
   border-top: 1px solid #ddd;
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: #ffffff;
+}
+
+.chat-input input {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0 15px;
+  outline: none;
+}
+
+.chat-input button {
+  height: 40px;
+  margin-left: 10px;
+  padding: 0 20px;
+  background: #007bff;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background: #0056b3;
 }
